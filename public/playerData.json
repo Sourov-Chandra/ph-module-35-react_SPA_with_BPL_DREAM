@@ -1,0 +1,52 @@
+[
+  {
+    "playerName": "Virat Kohli",
+    "playerCountry": "India",
+    "playerType": "Batsman",
+    "rating": 95,
+    "batingStyle": "Right-hand bat",
+    "bowlingStyle": "Right-arm occasional",
+    "price": "$2,500,000",
+    "playerImg": "https://i.ibb.co.com/qL9vrCQ1/virat.webp"
+  },
+  {
+    "playerName": "Ben Stokes",
+    "playerCountry": "England",
+    "playerType": "All-rounder",
+    "rating": 92,
+    "batingStyle": "Left-hand bat",
+    "bowlingStyle": "Right-arm fast-medium",
+    "price": "$2,200,000",
+    "playerImg": "https://i.ibb.co.com/B2n38B97/Ben-Stoke.webp"
+  },
+  {
+    "playerName": "Mitchell Starc",
+    "playerCountry": "Australia",
+    "playerType": "Bowler",
+    "rating": 90,
+    "batingStyle": "Left-hand bat",
+    "bowlingStyle": "Left-arm fast",
+    "price": "$1,800,000",
+    "playerImg": "https://i.ibb.co.com/fdqx2TZW/Mitchell-Starc.jpg"
+  },
+  {
+    "playerName": "Rashid Khan",
+    "playerCountry": "Afghanistan",
+    "playerType": "Bowler",
+    "rating": 88,
+    "batingStyle": "Right-hand bat",
+    "bowlingStyle": "Right-arm leg-spin",
+    "price": "$1,500,000",
+    "playerImg": "https://i.ibb.co.com/RGyGpt9Z/Rashid-Khan.jpg"
+  },
+  {
+    "playerName": "Jos Buttler",
+    "playerCountry": "England",
+    "playerType": "Batsman",
+    "rating": 91,
+    "batingStyle": "Right-hand bat",
+    "bowlingStyle": "Right-arm occasional",
+    "price": "$2,000,000",
+    "playerImg": "https://i.ibb.co.com/rGsSvz2V/Jos-Buttler.jpg"
+  }
+]

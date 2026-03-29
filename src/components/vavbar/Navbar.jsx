@@ -13,10 +13,8 @@ const Navbar = ({ toggleTheme, theme, coin }) => {
           {theme === "dark" ? <Moon /> : <SunMoon />}
         </button>
 
-        <button className="btn btn-square btn-ghost mr-2">
-          <p className="flex">
-            <span className="pr-2">{coin} </span> <span>Coin </span>
-          </p>
+        <button className="btn btn-ghost mr-2">
+            <span className="px- ml-">{coin} </span> <span>Coin </span>
           <img src={Dollar} alt="" />
         </button>
       </div>

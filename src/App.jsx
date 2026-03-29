@@ -10,7 +10,7 @@ const fetchPlayer = async () => {
 };
 
 function App() {
-  const [coin, setCoin] = useState("50000");
+  const [coin, setCoin] = useState(50000);
   const [theme, setTheme] = useState("dark");
   const playersPromise = fetchPlayer();
 
@@ -29,7 +29,11 @@ function App() {
           </div>
         }
       >
-        <Players playersPromise={playersPromise} />
+        <Players
+          playersPromise={playersPromise}
+          setCoin={setCoin}
+          coin={coin}
+        />
       </Suspense>
     </div>
   );

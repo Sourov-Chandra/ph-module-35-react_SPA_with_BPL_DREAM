@@ -1,8 +1,22 @@
 import React, { useState } from 'react'
 import { Flag, UserRound } from "lucide-react";
 
-const Card = ({player}) => {
-    const [isSelected, setIsSelected] = useState(false);
+
+const Card = ({ player, setCoin, coin }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleChoosePlayer = () => {
+    let newCoin = 0;
+    if( newCoin <= 0) {
+      alert("You don't have enough coins to select this player.");
+      return;
+    }else{
+      newCoin = coin - player.price;
+      setCoin(newCoin);
+      alert(`${player.playerName} has been selected! Remaining coins: ${newCoin}`)
+      setIsSelected(true);
+    }
+  }
   return (
     <div>
       <div className="card bg-base-100 shadow-sm">
@@ -37,7 +51,7 @@ const Card = ({player}) => {
               <p className="font-semibold">{player.price}</p>
               <button
                 className="btn"
-                onClick={() => setIsSelected(!isSelected)}
+                onClick={() => handleChoosePlayer}
                 disabled={isSelected}
               >
                 {isSelected ? "Selected" : "Choose Player"}
@@ -48,6 +62,6 @@ const Card = ({player}) => {
       </div>
     </div>
   );
-}
+};
 
 export default Card

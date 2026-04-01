@@ -1,22 +1,29 @@
 import React, { useState } from 'react'
 import { Flag, UserRound } from "lucide-react";
+import { toast } from 'react-toastify';
 
 
-const Card = ({ player, setCoin, coin }) => {
+const Card = ({
+  player,
+  coin,
+  setCoin,
+  selectedPlayers,
+  setSelectedPlayers,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleChoosePlayer = () => {
-    let newCoin = 0;
-    if( newCoin <= 0) {
-      alert("You don't have enough coins to select this player.");
+    // console.log("coin:", coin, "price:", player.price); 
+    if (coin >= player.price) {
+      setCoin(coin - player.price);
+    } else {
+      toast.error("You don't have enough coins...");
       return;
-    }else{
-      newCoin = coin - player.price;
-      setCoin(newCoin);
-      alert(`${player.playerName} has been selected! Remaining coins: ${newCoin}`)
-      setIsSelected(true);
     }
-  }
+    toast.success(`You have selected ${player.playerName}`);
+    setIsSelected(true);
+    setSelectedPlayers([...selectedPlayers, player])
+  };
   return (
     <div>
       <div className="card bg-base-100 shadow-sm">
@@ -33,7 +40,7 @@ const Card = ({ player, setCoin, coin }) => {
             <h2 className="card-title">{player.playerName}</h2>
           </div>
 
-          <div className="flex justify-between items-center border-b border-white pb-2">
+          <div className="flex justify-between items-center border-b border-black/5  pb-2">
             <div className="flex justify-center items-center gap-2">
               <Flag />
               <p>Bangladesh</p>
@@ -42,16 +49,16 @@ const Card = ({ player, setCoin, coin }) => {
           </div>
           {/* <div className="divider"></div> */}
           <div>
-            <h3>Rating</h3>
+            <h3>Rating({player.rating})</h3>
             <div className="flex justify-between items-center">
               <p className="font-semibold">{player.batingStyle}</p>
               <p className="font-semibold text-right">{player.bowlingStyle}</p>
             </div>
             <div className="flex justify-between items-center">
-              <p className="font-semibold">{player.price}</p>
+              <p className="font-semibold">${player.price}</p>
               <button
                 className="btn"
-                onClick={() => handleChoosePlayer}
+                onClick={handleChoosePlayer}
                 disabled={isSelected}
               >
                 {isSelected ? "Selected" : "Choose Player"}

@@ -6,6 +6,7 @@ const Players = ({ playersPromise, setCoin, coin }) => {
   const players = use(playersPromise);
 
   const [selectedType, setSelectedType] = useState("available");
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
 
   return (
     <div className="container mx-auto my-8">
@@ -13,7 +14,9 @@ const Players = ({ playersPromise, setCoin, coin }) => {
         {selectedType === "available" ? (
           <h2 className="font-bold">Available Players</h2>
         ) : (
-          <h2 className="font-bold">Selected Players</h2>
+          <h2 className="font-bold">
+            Selected Players({selectedPlayers.length}/{players.length})
+          </h2>
         )}
         <div>
           <button
@@ -26,14 +29,25 @@ const Players = ({ playersPromise, setCoin, coin }) => {
             onClick={() => setSelectedType("selected")}
             className={`btn rounded-r-none rounded-r-xl ${selectedType === "selected" ? "bg-[#E7FE29] text-black " : ""}`}
           >
-            Selected()
+            Selected({selectedPlayers.length})
           </button>
         </div>
       </div>
       {selectedType === "available" ? (
-        <AvailablePlayers players={players} />
+        <AvailablePlayers
+          players={players}
+          setCoin={setCoin}
+          coin={coin}
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+        />
       ) : (
-        <SelectedPlayers setCoin={setCoin} coin={coin} />
+        <SelectedPlayers
+          setCoin={setCoin}
+          coin={coin}
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+        />
       )}
     </div>
   );

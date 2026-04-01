@@ -2,7 +2,7 @@ import { useState, Suspense } from 'react';
 import './App.css'
 import Banner from './components/banner/Banner';
 import Players from './components/player/Players';
-import Navbar from './components/vavbar/Navbar';
+import Navbar from './components/navbar/Navbar';
 import { ToastContainer } from 'react-toastify';
 
 const fetchPlayer = async () => {
